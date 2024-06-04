@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
+const mongoose = require('mongoose');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,6 +14,12 @@ app.use(expressLayout);
 app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
+//connect to mongodb
+const dbURI = process.env.MONGODB_URI;
+mongoose.set('strictQuery', false);
+mongoose.connect(dbURI)
+    .then((result) => app.listen(PORT))   
+    .catch((err) => console.log(err));
 
 app.get('/', (req, res) => {
     const locals = {
@@ -23,6 +30,3 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-    });
