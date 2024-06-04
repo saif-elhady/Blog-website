@@ -15,6 +15,9 @@ app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
 //connect to mongodb
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 const dbURI = process.env.MONGODB_URI;
 mongoose.set('strictQuery', false);
 mongoose.connect(dbURI)
