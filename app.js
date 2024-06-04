@@ -21,12 +21,5 @@ mongoose.connect(dbURI)
     .then((result) => app.listen(PORT))   
     .catch((err) => console.log(err));
 
-app.get('/', (req, res) => {
-    const locals = {
-        title: 'nodejsBlog',
-        description: 'A simple blog application using Node.js',
-    }
-    res.render('index', locals);
-});
-
+app.use('/', require('./routes/main'));
 
