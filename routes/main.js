@@ -86,5 +86,20 @@ router.post('/search', async (req, res) => {
 });
 
 
+//GET ABOUT
+router.get('/about', (req, res) => {
+    res.render('about', {
+        currentRoute: '/about'
+    });
+});
+
+
+//GET CONTACT
+router.get('/contact', (req, res) => {
+    res.render('contact', {
+        currentRoute: '/contact'
+    });
+});
+
 
 module.exports = router;
