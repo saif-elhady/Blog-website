@@ -3,8 +3,8 @@
 A full-featured blogging platform built with Node.js, Express, and MongoDB.
 
 ## Demo
-[Demo] []
 [Demo]: https://blog-website-88to.onrender.com/
+[Demo][Demo]
 
 ## Features
 
