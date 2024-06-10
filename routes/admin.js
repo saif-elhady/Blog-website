@@ -129,21 +129,22 @@ router.post('/add-post', authMiddleware, async (req, res) => {
 
 
 //GET ADMIN CREATE NEW POST
-router.get('/edit-post/:id', authMiddleware, async (req, res) => {
+router.get('/add-post', authMiddleware, async (req, res) => {
     try {
         const locals = {
-            title: "Edit Post",
-            description: "Free NodeJs User Management System",
-        };
-        const data = await POST.findOne({ _id: req.params.id });
-        res.render('admin/edit-post', {
+            title: 'Add Post',
+            description: 'Simple Blog created with NodeJs, Express & MongoDb.'
+        }
+
+        res.render('admin/add-post', {
             locals,
-            data,
             layout: adminLayout
         });
+
     } catch (error) {
         console.log(error);
     }
+
 });
 
 
